@@ -584,10 +584,10 @@ global $wpdb;
       //Send Email notification
       //TODO: change email $to field
       $to = 'stefanvujic576@gmail.com';
-      $subject = 'SPS - New file upload';
-      $body = 'Please login to your SPS account to see your project update<br>';
+      $subject = 'mms - New file upload';
+      $body = 'Please login to your mms account to see your project update<br>';
       $headers = array('Content-Type: text/html; charset=UTF-8');
-      $headers[] = 'From: SPS Timber Windows <donotreply@spstimberwindows.co.uk>';
+      $headers[] = 'From: mms rounder doors <donotreply@mmsrounderdoors.co.uk>';
       wp_mail( $to, $subject, $body, $headers );
 
     }
@@ -622,13 +622,13 @@ function project_meta_save( $post_id, $post, $update  ) {
           //Send email notification with password
           //TODO: change to user email = $_POST['user_email']
           $to = 'stefanvujic576@gmail.com';
-          $subject = 'SPS Project created';
-          $body = 'Please login to your SPS account to see your project details<br>';
+          $subject = 'mms Project created';
+          $body = 'Please login to your mms account to see your project details<br>';
           $body = 'Reference: '.$_POST['reference'].$_POST['enquiry_form'].'<br>';
           $body .= 'Username: '.$_POST['user_name'].'<br>';
           $body .= 'Password: '.$random_password.'<br>';
           $headers = array('Content-Type: text/html; charset=UTF-8');
-          $headers[] = 'From: SPS Timber Windows <donotreply@spstimberwindows.co.uk>';
+          $headers[] = 'From: mms rounder doors <donotreply@mmsrounderdoors.co.uk>';
 
           wp_mail($to, $subject, $body, $headers);
 					//update project with new user id
@@ -669,11 +669,11 @@ function project_meta_save( $post_id, $post, $update  ) {
         //Send Email notification
         //TODO: change email $to field
         // $to = 'stefanvujic576@gmail.com';
-        // $subject = 'SPS - New file upload';
-        // $body = 'Please <a href="'.site_url().'/client-projects/'.'">login</a> to your SPS account to see your project update<br>';
-        // $body .= 'Please login to your SPS account to see your project update<br>';
+        // $subject = 'mms - New file upload';
+        // $body = 'Please <a href="'.site_url().'/client-projects/'.'">login</a> to your mms account to see your project update<br>';
+        // $body .= 'Please login to your mms account to see your project update<br>';
         // $headers = array('Content-Type: text/html; charset=UTF-8');
-        // $headers[] = 'From: SPS Timber Windows <donotreply@spstimberwindows.co.uk>';
+        // $headers[] = 'From: mms rounder doors <donotreply@mmsrounderdoors.co.uk>';
         // wp_mail( $to, $subject, $body, $headers );
       }
     }  
