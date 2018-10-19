@@ -1,0 +1,49 @@
+/* ADMIN STYLES */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+tr td:first-child() {
+  width:30%;
+}
+tr td:nth-child(2) {
+  width:45%;
+}
+tr td:nth-child(3) {
+  width:10%;
+}
+tr td:nth-child(4) {
+  width:5%;
+  text-transform: capitalize;
+}
+tr td:nth-child(5) {
+  width:5%;
+  text-transform: capitalize;
+}
+tr td:last-child {
+  width:5%;
+}
+
+#TB_window {
+  width: 360px !important;
+  height: 300px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  top: 30% !important;
+  left: 40% !important;
+}
+#TB_ImageOff, #TB_closeWindow {
+  display: inline-block;
+}
+#TB_caption {
+  display: none;
+}
