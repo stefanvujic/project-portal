@@ -1,1 +1,1 @@
-Custom post type for creating client projects
+Client portal for projects and contract signatures
