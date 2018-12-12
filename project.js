@@ -28,7 +28,7 @@ jQuery(document).ready(function($){
 	});
 
 	//Ajax call to check if user exist by username
-	$( "input[name='user_name']" ).on( "focusout", function() {
+	$("#user").on("focusout", function() {
 			var input = $(this);
 			var username = $(this).val();
 			var check = '<span id="username-check" class="dashicons dashicons-yes" style="color:green"></span>';
@@ -49,44 +49,23 @@ jQuery(document).ready(function($){
          }
       })
 
-	    var ajax_url = $('.site_url').val() + '/wp-content/themes/rebel-child/inc/projects.php';
+	    var ajax_url = 'https://www.spstimberwindows.co.uk/staging3/wp-content/themes/rebel-child/inc/enquiry-ajax.php';
 	    var form_enquiry_email = $("input[name='user_email']").val();
 	    $.post(ajax_url, {form_enquiry_email: form_enquiry_email}, function(data){
-	        console.log('wdqqwqwqd');
-	    });      
+
+	    	var dataCleanUp1 = data.replace('"', '');
+	    	var dataCleanUp2 = dataCleanUp1.replace('"', '');
+	    	var dataCleanUp3 = dataCleanUp2.replace('[', '');
+	    	var dataCleanUp4 = dataCleanUp3.replace(']', '');
+	    	var dataCleanUp5 = dataCleanUp4.replace(']', '');
+	    	var cleanData    = dataCleanUp5.replace(/\\/g, '');
+
+	    	$("#enquiry_box_option").text(cleanData);
+	    	$("#enquiry_box_option").val(cleanData);
+	    });     
 	});
 
-	//Ajax call to check if user exist by email
-	$( "input[name='user_email']" ).on( "focusout", function() {
-			var useremail = $(this).val();
-			var input = $(this);
-			var check = '<span id="useremail-check" class="dashicons dashicons-yes" style="color:green"></span>';
-			var error = '<span id="useremail-error" class="dashicons dashicons-no" style="color:red"></span>'
-
-			function validateEmail(email) {
-			    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			    return re.test(String(email).toLowerCase());
-			}
-			var isEmail = validateEmail(useremail);
-
-      jQuery.ajax({
-         type : "post",
-         dataType : "json",
-         url : ajaxurl,
-         data : {action: "my_user_email_check", useremail: useremail},
-         success: function(response) {
-					 if(response == 0 && isEmail == true){
-						 $('#useremail-error, #useremail-check').remove();
-						 $( input ).after( check );
-					 }else{
-						 $('#useremail-error, #useremail-check').remove();
-						 $( input ).after( error );
-					 }
-         }
-      })
-	});
-
-	document.addEventListener( 'wpcf7mailsent', function( event ) {
+	document.addEventListener('wpcf7mailsent', function(event) {
 	    location.reload();
 	}, false );
 

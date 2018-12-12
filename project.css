@@ -57,3 +57,9 @@ input.wpcf7-submit{
 .modal {
   top:30%;
 }
+.ui-widget-header {
+    border: 1px solid #eeeeee;
+    background: #eeeeee;
+    color: #ffffff;
+    font-weight: bold;
+}
